@@ -1,0 +1,41 @@
+app = "normies-api"
+primary_region = "ord"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  NODE_ENV = "production"
+  PORT = "3000"
+  API_RATE_LIMIT = "10"
+  API_RATE_LIMIT_WINDOW_MS = "60000"
+  MAX_TOP = "25"
+  MAX_BATCH_SIZE = "100"
+  MAX_OPENSEA_PAGES = "5"
+  MAX_LISTED_TOKEN_IDS = "500"
+  MAX_OWNER_RPC_SCAN_RANGE = "500"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 8
+    hard_limit = 16
+
+  [[http_service.checks]]
+    grace_period = "15s"
+    interval = "30s"
+    method = "GET"
+    path = "/api/health"
+    timeout = "5s"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "1gb"
+  cpus = 1

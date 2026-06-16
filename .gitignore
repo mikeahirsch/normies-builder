@@ -1,0 +1,31 @@
+# dependencies
+node_modules
+**/node_modules
+
+# Next.js
+.next
+**/.next
+out
+**/out
+
+# runtime cache
+cache
+**/cache
+
+# env files
+.env
+.env.*
+*.env
+*.env.*
+!.env.example
+!**/.env.example
+!**/.env*.example
+
+# build metadata
+*.tsbuildinfo
+**/*.tsbuildinfo
+
+# misc
+*.log
+.DS_Store
+.pnp.*

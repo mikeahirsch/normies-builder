@@ -1,0 +1,17 @@
+.git
+.next
+**/.next
+cache
+**/cache
+node_modules
+**/node_modules
+
+.env
+.env.*
+*.env
+*.env.*
+
+*.log
+*.tsbuildinfo
+**/*.tsbuildinfo
+.DS_Store

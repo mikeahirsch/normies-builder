@@ -1,0 +1,19 @@
+{
+  "name": "normies-builder",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "bun@1.2.19",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run dev:api & bun run dev:web",
+    "dev:api": "PORT=3001 bun run --cwd packages/api dev",
+    "dev:web": "bun run --cwd packages/web dev",
+    "build": "bun run --cwd packages/api build && bun run --cwd packages/web build",
+    "build:web": "bun run --cwd packages/web build",
+    "start:api": "bun run --cwd packages/api start",
+    "start:web": "bun run --cwd packages/web start",
+    "typecheck": "bun run --cwd packages/api typecheck && bun run --cwd packages/web typecheck"
+  }
+}
